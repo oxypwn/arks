@@ -2,5 +2,5 @@
 
 ### Basic installation
 
-[Settings](arks/settings)
+[Settings](docs/settings)
 
