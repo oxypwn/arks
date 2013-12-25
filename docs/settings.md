@@ -2,7 +2,7 @@
 
 
 Config variables:
-
+````
     REMOTE		    Example: REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
     HOSTNAME		Example: HOSTNAME="archlinux"
     USERNAME		Example: USERNAME="pandrew"
@@ -27,4 +27,4 @@ Config variables:
     IPADDRESS       Example: IPADDRESS="192.168.2.67"
     GATEWAY         Example: GATEWAY="192.168.2.1"
     DNS             Example: DNS="192.168.2.1"
-
+```
