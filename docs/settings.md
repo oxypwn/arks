@@ -2,7 +2,7 @@
 
 
 Config variables:
-```
+```sh
 REMOTE		    Example: REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
 HOSTNAME		Example: HOSTNAME="archlinux"
 USERNAME		Example: USERNAME="pandrew"
