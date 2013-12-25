@@ -2,5 +2,5 @@
 
 ### Basic installation
 
-[Settings](/settings)
+[Settings](/docs/settings)
 
