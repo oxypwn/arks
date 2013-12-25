@@ -1,0 +1,5 @@
+Description="Example Bridge connection"
+Interface=br0
+Connection=bridge
+BindsToInterfaces=(net0 net1)
+IP=dhcp
