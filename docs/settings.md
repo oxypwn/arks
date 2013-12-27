@@ -36,6 +36,7 @@ REMOTE=https://raw.github.com/pandrew/arks/$BRANCH
 Config variables:
 ### HOSTNAME
 Example:
+
 ```
 HOSTNAME="archlinux"
 ```
@@ -44,6 +45,7 @@ Set the hostname for this node.
 
 ### USERNAME
 Example:
+
 ```
 USERNAME="pandrew"
 ```
@@ -52,6 +54,7 @@ Set the username for the user being added.
 
 ### GROUP
 Example:
+
 ```
 GROUP="users"
 ```
@@ -60,20 +63,32 @@ Set the default group for user being added.
 
 ### ADDTOGROUPS
 Example:
+
 ```
 ADDTOGROUPS="sudo"
 ```
 
 Add user to any additional group.
 
+
+### USERS_SHELL
+Example:
+
+```
+USERS_SHELL="zsh"
+```
+
+Set users shell.
+
+
 ### REMOTE
 Example: 
+
 ``` 
 REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
 ```
 
 
-USERS_SHELL		Example: USERS_SHELL="zsh"
 FONT		    Example: FONT=ter-116n
 FONT_MAP		Example: FONT_MAP=8859-1
 LANGUAGE		Example: LANGUAGE=en_US.UTF-8
