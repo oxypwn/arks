@@ -2,7 +2,10 @@
 
 # Profiles
 
-Profiles is a simple textfile with the all the variables, settings and dependencies to trigger the installation.
+Profiles is a simple textfile with the all the variables, settings and dependencies to trigger the installation of a node. 
+
+### Warning!
+It should be noted that profiles should be treated as secrets as they might contain api keys to do some of the more advance functions such as sending email.
 
 ```
 #!/usr/bin/env bash
