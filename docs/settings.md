@@ -2,6 +2,8 @@
 
 # Profiles
 
+Profiles is a simple textfile with the all the variables, settings and dependencies to trigger the installation.
+
 ```sh
 #!/usr/bin/env bash
 
@@ -32,10 +34,14 @@ REMOTE=https://raw.github.com/pandrew/arks/$BRANCH
 ```
 
 Config variables:
-
+### HOSTNAME
+Example:
+```sh 
+HOSTNAME="archlinux"
+```
 ### REMOTE
 Example: 
-```sh 
+``` 
 REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
 ```
 
