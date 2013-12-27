@@ -2,8 +2,13 @@
 
 
 Config variables:
-```sh
-REMOTE		    Example: REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
+
+### REMOTE
+Example: 
+```sh 
+REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
+```
+
 HOSTNAME		Example: HOSTNAME="archlinux"
 USERNAME		Example: USERNAME="pandrew"
 GROUP		    Example: GROUP="users"
@@ -27,4 +32,4 @@ NETWORK_PROFILE Example: NETWORK_PROFILE="post/enp2s0"
 IPADDRESS       Example: IPADDRESS="192.168.2.67"
 GATEWAY         Example: GATEWAY="192.168.2.1"
 DNS             Example: DNS="192.168.2.1"
-```
+
