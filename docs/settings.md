@@ -92,6 +92,16 @@ REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
 ```
 
 
+## Not implemented
+### MAILGUN
+Example:
+
+```
+MAILGUN=api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0
+```
+
+If this is set you will recieve your password via email. You will be forced to change your account password when you login for the first time.
+
 FONT		    Example: FONT=ter-116n
 FONT_MAP		Example: FONT_MAP=8859-1
 LANGUAGE		Example: LANGUAGE=en_US.UTF-8
