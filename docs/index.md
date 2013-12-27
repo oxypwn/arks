@@ -2,5 +2,5 @@
 
 ### Basic installation
 
-[Settings](/arks/settings)
+[Profiles](/arks/settings)
 

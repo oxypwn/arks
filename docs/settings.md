@@ -39,16 +39,40 @@ Example:
 ```
 HOSTNAME="archlinux"
 ```
+
+Set the hostname for this node.
+
+### USERNAME
+Example:
+```
+USERNAME="pandrew"
+```
+
+Set the username for the user being added.
+
+### GROUP
+Example:
+```
+GROUP="users"
+```
+
+Set the default group for user being added.
+
+### ADDTOGROUPS
+Example:
+```
+ADDTOGROUPS="sudo"
+```
+
+Add user to any additional group.
+
 ### REMOTE
 Example: 
 ``` 
 REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
 ```
 
-HOSTNAME		Example: HOSTNAME="archlinux"
-USERNAME		Example: USERNAME="pandrew"
-GROUP		    Example: GROUP="users"
-ADDTOGROUPS		Example: ADDTOGROUPS="users,sudo"
+
 USERS_SHELL		Example: USERS_SHELL="zsh"
 FONT		    Example: FONT=ter-116n
 FONT_MAP		Example: FONT_MAP=8859-1
