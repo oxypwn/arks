@@ -1,5 +1,5 @@
-# Arks
-## Unattended installation of archlinux
+# Arks 
+### Unattended installation of archlinux
 
 ### Overview
 A fork from [altercation/archblocks](https://github.com/altercation/archblocks) that is meant to be fully unattended
