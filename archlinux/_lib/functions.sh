@@ -150,7 +150,8 @@ fi
 _mrbootstrap() {
 if [ ! -z $MR_BOOTSTRAP ]; then
     which mr > /dev/null || _installaur myrepos
-    su $USERNAME -l -c "export AUTH_USERNAME=\"$_auth_username\"; export AUTH_PASSPHRASE=\"$_auth_passphrase\"; mr --trust-all bootstrap \"${MR_BOOTSTRAP}\""
+    su $USERNAME -l -c "export AUTH_USERNAME=\"$_auth_username\"; export AUTH_PASSPHRASE=\"$_auth_passphrase\"; mr --trust-all bootstrap \"$MR_BOOTSTRAP\""
+    unset MR_BOOTSTRAP
 fi
 }
 
