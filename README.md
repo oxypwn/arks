@@ -5,6 +5,11 @@
 A fork from [altercation/archblocks](https://github.com/altercation/archblocks) that is meant to be fully unattended
 and modular while following the wiki for installing archlinux.
 
+### Why Arks?
+
++   Independent user profiles
++   Error handling
++   Follows (somewhat) Beginners' Guide
 
 ### Documentation
 
