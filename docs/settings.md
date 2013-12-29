@@ -30,7 +30,7 @@ GATEWAY="192.168.2.1"
 DNS="'8.8.8.8' '8.8.4.4'"
 
 BRANCH=master
-
+ 
 # Set remote location to run from, source functions and run install
 REMOTE=https://raw.github.com/pandrew/arks/$BRANCH
 . <(curl -fsL "${REMOTE}/archlinux/_lib/functions.sh"); _loadblock "_lib/install"
@@ -93,14 +93,24 @@ REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
 
 
 ## Not implemented
-### MAILGUN
+### API_KEY_EMAIL
 Example:
 
 ```
-MAILGUN=api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0
+API_KEY_EMAIL=api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0
 ```
 
 If this is set you will recieve your password via email. You will be forced to change your account password when you login for the first time.
+
+
+### ERROR_EMAIL
+Example:
+```
+ERROR_EMAIL=adm@paulnotco.se
+```
+If an error occur the system will jump out of the installation loop and give you the option to fix the block or enter a shell. If `ERROR_EMAIL` is set an
+email is sent to the address with hostname and what block it reported an error on.
+
 
 FONT		    Example: FONT=ter-116n
 FONT_MAP		Example: FONT_MAP=8859-1
