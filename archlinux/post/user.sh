@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eo pipefail; [[ $ARKS_TRACE ]] && set -x
 
 # Add users
 ARRAY_USERS=(${USERNAMES})
