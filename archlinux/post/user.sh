@@ -14,7 +14,8 @@ for (( i=0; i<=$(( $val -1 )); i++ )); do
             useradd -m -g "$GROUP" -G "$ADDTOGROUPS" -s /usr/bin/"$USERS_SHELL" "$USERNAME"
             _mrbootstrap "$MR_BOOTSTRAP"
             # Set default password to username given
-            echo "$USERNAME:$GROUP" | chpasswd
+            # username:password
+            echo "$USERNAME:$USERNAME" | chpasswd
             passwd -e "$USERNAME"
         fi
 done
