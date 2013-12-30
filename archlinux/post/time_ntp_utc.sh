@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #
 # TIME
+#set -eo pipefail; [[ $ARKS_TRACE ]] && set -x
+[[ $ARKS_TRACE ]] && [[ $DEBUGVARS ]]
 
 ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
 echo ${TIMEZONE} >> /etc/timezone

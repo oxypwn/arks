@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[[ $ARKS_TRACE ]] && $DEBUGVARS
 
 # Add users
 ARRAY_USERS=(${USERNAMES})
@@ -9,13 +10,15 @@ for (( i=0; i<=$(( $val -1 )); i++ )); do
         if [[ "$?" == 0 ]]; then
             . <(curl -fsL $URL)
             if [[ $USERS_SHELL != bash ]]; then
-                _installpkg $USERS_SHELL
-            fi  
-            useradd -m -g ${GROUP} -G ${ADDTOGROUPS} -s /usr/bin/${USERS_SHELL} ${USERNAME}
-            _mrbootstrap "${MR_BOOTSTRAP}"
+                _installpkg "$USERS_SHELL"
+            fi
+            _installpkg $LOGIN_SHELL
+            useradd -m -g "$GROUP" -G "$ADDTOGROUPS" -s "$LOGIN_SHELL" "$USERNAME"
+            _mrbootstrap "$MR_BOOTSTRAP"
             # Set default password to username given
-            echo "${USERNAME}:${USERNAME}" | chpasswd
-            passwd -e ${USERNAME}
+            # username:password
+            echo "$USERNAME:$USERNAME" | chpasswd
+            passwd -e "$USERNAME"
         fi
 done
 
