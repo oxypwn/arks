@@ -7,9 +7,10 @@ and modular while following the wiki for installing archlinux.
 
 ### Why Arks?
 
-+   Independent user profiles
-+   Error handling
-+   Follows (somewhat) Beginners' Guide
++   Fully unattended.
++   Independent user profiles.
++   Error handling.
++   Follows (somewhat) Beginners' Guide.
 
 ### Documentation
 
