@@ -34,7 +34,7 @@ DNS="'8.8.8.8' '8.8.4.4'"
 BRANCH=master
  
 # Set remote location to run from, source functions and run install
-REMOTE=https://ra w.github.com/pandrew/arks/$BRANCH
+REMOTE=https://raw.github.com/pandrew/arks/$BRANCH
 . <(curl -fsL "${REMOTE}/archlinux/_lib/functions.sh"); _loadblock "_lib/install"
 ```
 
