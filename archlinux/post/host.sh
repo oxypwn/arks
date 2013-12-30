@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # HOST
-
+_installpkg dnsutils
 # Lookup current ip against dns and if success set HOSTNAME to returned value.
 IPADDR=`hostname -i`
 LOOKUPIP=$(host ${IPADDR})

@@ -101,6 +101,14 @@ _anykey () {
 echo -e "\n$@"; read -sn 1 -p "Any key to continue..."; echo;
 }
 
+_basenamePackage () {
+BASENAME="$@"
+if [[ "$BASENAME" == */* ]]; then
+    package=$(basename -a $BASENAME)
+else
+    package="$BASENAME"
+fi
+}
 
 # INSTALLPKG -------------------------------------------------------------
 _installpkg () {
@@ -110,10 +118,15 @@ _installpkg () {
 # Usage:
 # _installpkg pkgname1 [pkgname2] [pkgname3]
 #
-if  [[ $EUID -ne 0 ]]; then
-    sudo pacman -S --noconfirm "$@";
+if [[ "$@" == */* ]]; then
+    package=$(basename -a $@)
 else
-    pacman -S --noconfirm "$@";
+    package="$@"
+fi
+if  [[ $EUID -ne 0 ]]; then
+    sudo pacman -S --noconfirm $package;
+else
+    pacman -S --noconfirm $package;
 fi
 }
 
