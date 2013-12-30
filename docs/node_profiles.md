@@ -9,6 +9,8 @@ It should be noted that profiles should be treated as secrets as they might cont
 
 ```
 #!/usr/bin/env bash
+ARKS_TRACE=1
+DEBUGVARS="set -x"
 
 HOSTNAME=mercury
 USERNAMES="pandrew vagrant"
@@ -38,16 +40,25 @@ REMOTE=https://raw.github.com/pandrew/arks/$BRANCH
 
 Config variables:
 ### HOSTNAME
-Example:
+Example: 
 
 ```
 HOSTNAME="archlinux"
 ```
 
 Set the hostname for this node.
+### ARKS_TRACE, DEBUGVARS
+Example:
+
+```
+ARKS_TRACE=1
+DEBUGVARS="set -x"
+```
+
+To enable traceing and debugging set ARKS_TRACE to 1. Set DEBUGVARS to any debugging settings of your choice.
 
 ### USERNAME
-Example:
+Example: 
 
 ```
 USERNAME="pandrew"
