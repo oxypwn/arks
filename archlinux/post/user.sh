@@ -2,7 +2,7 @@
 [[ $ARKS_TRACE ]] && $DEBUGVARS
 
 # Add users
-array=(${USERNAMES})
+array=(${USERNAMES});
 for ((i=0; i<${#array[@]}; ++i)); do
     URL="${REMOTE}/archlinux/users/"${ARRAY_USERS[$i]}".sh"
     curl -fsL $URL
