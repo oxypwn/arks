@@ -4,7 +4,7 @@ groupadd wireshark
 groupadd vboxusers
 groupadd kvm
 groupadd libvirt
-
+graupadd docker
 
 # load userspecific settings from here
 USERNAME=pandrew
