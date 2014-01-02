@@ -2,10 +2,9 @@
 [[ $ARKS_TRACE ]] && $DEBUGVARS
 
 # Add users
-ARRAY_USERS=(${USERNAMES})
-val=${#ARRAY_USERS[*]}
-for (( i=0; i<=$(( $val -1 )); i++ )); do
-    URL="${REMOTE}/archlinux/users/"${ARRAY_USERS[$i]}".sh"
+array=($USERNAMES);
+for ((i=0; i<${#array[@]}; ++i)); do
+    URL="${REMOTE}/archlinux/users/"${array[$i]}".sh"
     curl -fsL $URL
         if [[ "$?" == 0 ]]; then
             . <(curl -fsL $URL)
