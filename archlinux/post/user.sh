@@ -8,10 +8,9 @@ for ((i=0; i<${#array[@]}; ++i)); do
     curl -fsL $URL
         if [[ "$?" == 0 ]]; then
             . <(curl -fsL $URL)
-            if [[ $USERS_SHELL != bash ]]; then
-                _installpkg "$USERS_SHELL"
+            if [[ $LOGIN_SHELL != /bin/bash ]]; then
+                _installpkg "$LOGIN_SHELL"
             fi
-            _installpkg $LOGIN_SHELL
             useradd -m -g "$GROUP" -G "$ADDTOGROUPS" -s "$LOGIN_SHELL" "$USERNAME"
             _mrbootstrap "$MR_BOOTSTRAP"
             # Set default password to username given
