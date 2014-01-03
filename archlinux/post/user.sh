@@ -18,8 +18,22 @@ for ((i=0; i<${#array[@]}; ++i)); do
             _mrbootstrap "$MR_BOOTSTRAP"
             # Set default password to username given
             # username:password
-            echo "$USERNAME:$USERNAME" | chpasswd
-            passwd -e "$USERNAME"
+            if [[ ! -z $EMAIL ]]; then
+                PASSWORD=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c8)
+                echo "$USERNAME:$PASSWORD" >> /root/accounts.txt
+                echo "$USERNAME:$PASSWORD" | chpasswd
+                passwd -e "$USERNAME"
+                curl -s --user api:$API_KEY_EMAIL \
+                    https://api.mailgun.net/v2/sandbox33413.mailgun.org/messages \
+                    -F from="${HOSTNAME} <me@sandbox33413.mailgun.org>" \
+                    -F to=$EMAIL \
+                    -F subject="${HOSTNAME} have sent you Your password" \
+                    -F text=$PASSWORD
+                unset EMAIL
+            else
+                echo "$USERNAME:$USERNAME" | chpasswd
+                passwd -e "$USERNAME"
+            fi
         fi
 done
 
