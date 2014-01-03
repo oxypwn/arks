@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-groupadd wireshark
-groupadd vboxusers
-groupadd kvm
-groupadd libvirt
-groupadd docker
-
 # load userspecific settings from here
 USERNAME=pandrew
 GROUP="users"

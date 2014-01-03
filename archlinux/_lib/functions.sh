@@ -223,6 +223,21 @@ for _block in $@; do
 done
 }
 
+# ADD GROUPS FROM ADDTOGROUPS
+_addgroups () {
+# Add any nonexisting group from $ADDTOGROUPS
+#
+while IFS=',' read -ra arrayGroup; do
+    for GroupToAdd in "${arrayGroup[@]}"; do
+        if [[ ! $(awk -F":" '{print $1}' /etc/group | grep -wE ^"$GroupToAdd") ]]; then
+            echo Group "$GroupToAdd" does not exist.
+            echo Creating group "$GroupToAdd"
+            groupadd "$GroupToAdd"
+        fi
+    done
+done <<< "$ADDTOGROUPS"
+}
+
 # LOAD EFIVARS MODULE ----------------------------------------------------
 _load_efi_modules () {
 # Load efivars (or confirm they've loaded already) and set EFI_MODE for

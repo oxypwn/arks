@@ -11,6 +11,9 @@ for ((i=0; i<${#array[@]}; ++i)); do
             if [[ $LOGIN_SHELL != /bin/bash ]]; then
                 _installpkg "$LOGIN_SHELL"
             fi
+            if [[ ! -z $ADDTOGROUPS ]]; then
+                _addgroups
+            fi
             useradd -m -g "$GROUP" -G "$ADDTOGROUPS" -s "$LOGIN_SHELL" "$USERNAME"
             _mrbootstrap "$MR_BOOTSTRAP"
             # Set default password to username given
