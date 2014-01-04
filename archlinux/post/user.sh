@@ -18,7 +18,7 @@ for ((i=0; i<${#array[@]}; ++i)); do
             _mrbootstrap "$MR_BOOTSTRAP"
             # Set default password to username given
             # username:password
-            if [[ ! -z $EMAIL ]]; then
+            if [[ ! -z $API_KEY_EMAIL && ! -z $EMAIL ]]; then
                 PASSWORD=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c8)
                 echo "$USERNAME:$PASSWORD" >> /root/accounts.txt
                 echo "$USERNAME:$PASSWORD" | chpasswd
