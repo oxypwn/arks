@@ -164,6 +164,14 @@ AURPACKAGES="git-annex-bin"
 
 Setting this will allow us to install specified packages from aur.
 
+### NETWORK_PROFILE
+Example:
+```
+NETWORK_PROFILE="post/net0-static"
+```
+
+Using network profiles we can set any settings we need to get network up and running.
+
 #Not implemented
 ### ERROR_EMAIL
 Example:
@@ -183,7 +191,7 @@ MODULES		    Example: MODULES="dm_mod dm_crypt aes_x86_64"
 HOOKS		    Example: HOOKS="base udev"
 AUDIO		    Example: AUDIO="post/audio_alsa"
 IPADRESS		Example: IPADRESS=192.168.1.18/24
-NETWORK_PROFILE Example: NETWORK_PROFILE="post/enp2s0"
+
 GATEWAY         Example: GATEWAY="192.168.2.1"
 DNS             Example: DNS="192.168.2.1"
 
