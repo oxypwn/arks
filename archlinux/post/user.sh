@@ -16,19 +16,19 @@ for ((i=0; i<${#array[@]}; ++i)); do
             fi
             useradd -m -g "$GROUP" -G "$ADDTOGROUPS" -s "$LOGIN_SHELL" "$USERNAME"
             _mrbootstrap "$MR_BOOTSTRAP"
-            # Set default password to username given
-            # username:password
             if [[ ! -z $API_KEY_EMAIL && ! -z $EMAIL ]]; then
-                PASSWORD=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c8)
-                echo "$USERNAME:$PASSWORD" >> /root/accounts.txt
-                echo "$USERNAME:$PASSWORD" | chpasswd
-                passwd -e "$USERNAME"
+                _injectRandomPassword
+
                 SUBJECT="${HOSTNAME} sent you Your password."
                 TEXT="$PASSWORD"
+                
                 _mailgun
+                _keychainio
+            elif [[ ! -z $EMAIL ]]; then
+                _keychainio
+                _injectBasicPassword
             else
-                echo "$USERNAME:$USERNAME" | chpasswd
-                passwd -e "$USERNAME"
+                _injectBasicPassword
             fi
         fi
 done
