@@ -131,6 +131,38 @@ API_FROM_EMAIL=me@mydomain.apidomain.com
 
 The address from which the email should be sent from.
 
+### INSTALL_DRIVE
+Example:
+
+```
+INSTALL_DRIVE=/dev/sda
+```
+If you have multiple harddrives in your computer arks wont be able to detect which you want to install to. You can specify this with INSTALL_DRIVE. Default is /dev/sda
+
+### APPSETS
+Example:
+
+```
+APPSETS="appsets/virtual"
+```
+
+With APPSETS we can specify multiple packages and customizations for these packages to be installed. In  this case "appsets/virtual" coud install virtualbox or kvm or both. We can also set dependencies as groups or any other settings.
+
+### PACKAGES
+Example:
+```
+PACKAGES="git golang mutt"
+```
+
+Setting this will allow us to install specified packages from repository.
+
+### AURPACKAGES
+Example:
+```
+AURPACKAGES="git-annex-bin"
+```
+
+Setting this will allow us to install specified packages from aur.
 
 #Not implemented
 ### ERROR_EMAIL
@@ -150,13 +182,8 @@ TIMEZONE		Example: TIMEZONE="Europe/Stockholm"
 MODULES		    Example: MODULES="dm_mod dm_crypt aes_x86_64"
 HOOKS		    Example: HOOKS="base udev"
 AUDIO		    Example: AUDIO="post/audio_alsa"
-APPSETS		    Example: APPSETS="appsets/virtual"
 IPADRESS		Example: IPADRESS=192.168.1.18/24
-INSTALL_DRIVE	Example: INSTALL_DRIVE="/dev/sda"
-PACKAGES		Example: PACKAGES="git golang mutt"
-AURPACKAGES		Example: AURPACKAGES="git-annex-bin"
 NETWORK_PROFILE Example: NETWORK_PROFILE="post/enp2s0"
-IPADDRESS       Example: IPADDRESS="192.168.2.67"
 GATEWAY         Example: GATEWAY="192.168.2.1"
 DNS             Example: DNS="192.168.2.1"
 
