@@ -23,9 +23,9 @@ for ((i=0; i<${#array[@]}; ++i)); do
                 echo "$USERNAME:$PASSWORD" >> /root/accounts.txt
                 echo "$USERNAME:$PASSWORD" | chpasswd
                 passwd -e "$USERNAME"
-                curl -s --user api:$API_KEY_EMAIL \
+                curl -s --user $API_KEY_EMAIL \
                     $API_URI_EMAIL \
-                    -F from="${HOSTNAME} <$API_DOMAIN_EMAIL>" \
+                    -F from="${HOSTNAME} <$API_FROM_EMAIL>" \
                     -F to=$EMAIL \
                     -F subject="${HOSTNAME} have sent you Your password" \
                     -F text=$PASSWORD
