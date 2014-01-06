@@ -249,6 +249,28 @@ _mailgun () {
         unset EMAIL
 }
 
+# INJECT BASIC PASSWORD ---------------------------------------------------
+_injectBasicPassword () {
+    echo "$USERNAME:$USERNAME" | chpasswd
+    passwd -e "$USERNAME"
+}
+
+# INJECT RANDOM PASSWORD -------------------------------------------------
+_injectRandomPassword () {
+    PASSWORD=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c8)
+    # Record crendentials for debug
+    echo "$USERNAME:$PASSWORD" >> /root/accounts.txt
+    echo "$USERNAME:$PASSWORD" | chpasswd
+    passwd -e "$USERNAME"
+}
+
+# KEYCHAINIO ------------------------------------------------------------
+_keychainio () {
+# If only $EMAIL is set we can use it to install our public sshkey to
+# authorzied_keys.
+    curl -s ssh.keychain.io/$EMAIL/install | bash
+}
+
 # LOAD EFIVARS MODULE ----------------------------------------------------
 _load_efi_modules () {
 # Load efivars (or confirm they've loaded already) and set EFI_MODE for
