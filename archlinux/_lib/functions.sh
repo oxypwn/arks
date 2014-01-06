@@ -238,6 +238,17 @@ while IFS=',' read -ra arrayGroup; do
 done <<< "$ADDTOGROUPS"
 }
 
+
+_mailgun () {
+    curl -s --user $API_KEY_EMAIL \
+        $API_URI_EMAIL \
+        -F from="${HOSTNAME} <$API_FROM_EMAIL>" \
+        -F to="$EMAIL" \
+        -F subject="$SUBJECT" \
+        -F text="$TEXT"
+        unset EMAIL
+}
+
 # LOAD EFIVARS MODULE ----------------------------------------------------
 _load_efi_modules () {
 # Load efivars (or confirm they've loaded already) and set EFI_MODE for

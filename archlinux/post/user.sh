@@ -23,13 +23,9 @@ for ((i=0; i<${#array[@]}; ++i)); do
                 echo "$USERNAME:$PASSWORD" >> /root/accounts.txt
                 echo "$USERNAME:$PASSWORD" | chpasswd
                 passwd -e "$USERNAME"
-                curl -s --user api:$API_KEY_EMAIL \
-                    https://api.mailgun.net/v2/sandbox33413.mailgun.org/messages \
-                    -F from="${HOSTNAME} <me@sandbox33413.mailgun.org>" \
-                    -F to=$EMAIL \
-                    -F subject="${HOSTNAME} have sent you Your password" \
-                    -F text=$PASSWORD
-                unset EMAIL
+                SUBJECT="${HOSTNAME} sent you Your password."
+                TEXT="$PASSWORD"
+                _mailgun
             else
                 echo "$USERNAME:$USERNAME" | chpasswd
                 passwd -e "$USERNAME"

@@ -103,7 +103,6 @@ REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
 ```
 
 
-## Not implemented
 ### API_KEY_EMAIL
 Example:
 
@@ -111,13 +110,33 @@ Example:
 API_KEY_EMAIL=api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0
 ```
 
+
 If this is set you will recieve your password via email. You will be forced to change your account password when you login for the first time.
 
+### API_URI_EMAIL
+Example:
 
+```
+API_URI_EMAIL=
+```
+
+The full uri to email api provider.
+
+### API_FROM_EMAIL
+Example:
+
+```
+API_FROM_EMAIL=me@mydomain.apidomain.com
+```
+
+The address from which the email should be sent from.
+
+
+#Not implemented
 ### ERROR_EMAIL
 Example:
 ```
-ERROR_EMAIL=adm@paulnotco.se
+ERROR_EMAIL=adm@paulnotcom.se
 ```
 If an error occur the system will jump out of the installation loop and give you the option to fix the block or enter a shell. If `ERROR_EMAIL` is set an
 email is sent to the address with hostname and what block it reported an error on.
