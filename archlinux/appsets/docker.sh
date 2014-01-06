@@ -8,32 +8,11 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 if [ -z $REMOTE ]; then
-    REMOTE=https://raw.github.com/pandrew/kickstart/master/archlinux/
+    REMOTE=https://raw.github.com/pandrew/arks/master
     . <(curl -fsL "${REMOTE}/archlinux/_lib/functions.sh")
 fi
 
-# Install dependencies
-_installpkg xmlto docbook-xsl bc
+_installpkg docker
+sudo systemctl start docker
+sudo systemctl enable docker
 
-# We need to set TMPDIR other than /tmp as building the kernel might fill up the disk.
-if [ ! -d /root/TMPDIR ]; then
-    mkdir /root/TMPDIR && export TMPDIR=/root/TMPDIR
-fi
-
-# Install docker from aur
-_installaur lxc-docker
-
-# You will need to greate a new config for grub if
-# you dont already have a aufs friendly kernel installed.
-grub-mkconfig -o /boot/grub/grub.cfg
-
-systemctl start docker
-systemctl enable docker
-
-sysctl net.ipv4.ip_forward=1
-# Make above setting permanent.
-curl -fsL ${REMOTE}/archlinux/conf/sysctl.conf -o /etc/sysctl.conf
-
-# Cleanup
-rm -vrf /root/TMPDIR
-unset TMPDIR
