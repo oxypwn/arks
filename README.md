@@ -11,6 +11,11 @@ and modular while following the wiki for installing archlinux.
 +   Independent user profiles.
 +   Error handling.
 +   Follows (somewhat) Beginners' Guide.
++   progrium/kechain.io support.
++   Email api support.
+
+### Upcoming Features
++   pushnotification support.
 
 ### Documentation
 
