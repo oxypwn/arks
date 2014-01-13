@@ -38,6 +38,7 @@ _defaultvalue SOUND ""
 _defaultvalue POWER post/power_acpi
 _defaultvalue SENSORS post/sensors
 _defaultvalue DESKTOP ""
+_defaultvalue PROVISIONING post/provisioning
 _defaultvalue USERS post/user
 _defaultvalue AUTH post/auth
 _defaultvalue APPSETS appsets/default
