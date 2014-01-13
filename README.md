@@ -13,7 +13,7 @@ and modular while following the wiki for installing archlinux.
 +   Follows (somewhat) Beginners' Guide.
 +   progrium/kechain.io support.
 +   Email one time passwords.
-+   Puppet provision.
++   Puppet provisioning.
 
 ### Upcoming Features
 +   pushnotification support.
