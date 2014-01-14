@@ -14,9 +14,8 @@ and modular while following the wiki for installing archlinux.
 +   progrium/kechain.io support.
 +   Email one time passwords.
 +   Puppet provisioning.
++   Notify your iphone when installation is complete.
 
-### Upcoming Features
-+   pushnotification support.
 
 ### Documentation
 

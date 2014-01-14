@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # ------------------------------------------------------------------------
 # archblocks - modular Arch Linux install script
 # ------------------------------------------------------------------------
@@ -161,7 +161,7 @@ fi
 }
 
 _mrbootstrap() {
-if [ ! -z $MR_BOOTSTRAP ]; then
+if [[ ! -z $MR_BOOTSTRAP ]]; then
     which mr > /dev/null || _installaur myrepos
     su $USERNAME -l -c "export AUTH_USERNAME=\"$_auth_username\"; export AUTH_PASSPHRASE=\"$_auth_passphrase\"; mr --trust-all bootstrap \"$MR_BOOTSTRAP\""
     unset MR_BOOTSTRAP
@@ -240,13 +240,21 @@ done <<< "$ADDTOGROUPS"
 
 
 _mailgun () {
-    curl -s --user $API_KEY_EMAIL \
-        $API_URI_EMAIL \
-        -F from="${HOSTNAME} <$API_FROM_EMAIL>" \
-        -F to="$EMAIL" \
-        -F subject="$SUBJECT" \
-        -F text="$TEXT"
-        unset EMAIL
+curl -s --user $API_KEY_EMAIL \
+    $API_URI_EMAIL \
+    -F from="${HOSTNAME} <$API_FROM_EMAIL>" \
+    -F to="$EMAIL" \
+    -F subject="$SUBJECT" \
+    -F text="$TEXT"
+    unset EMAIL
+}
+
+_pushover () {
+curl -s \
+    -F "token=$API_KEY_APP_PUSHOVER" \
+    -F "user=$API_KEY_USER_PUSHOVER" \
+    -F "message=${HOSTNAME} was successfully installed." \
+    https://api.pushover.net/1/messages.json
 }
 
 # INJECT BASIC PASSWORD ---------------------------------------------------
@@ -268,7 +276,8 @@ _injectRandomPassword () {
 _keychainio () {
 # If only $EMAIL is set we can use it to install our public sshkey to
 # authorzied_keys.
-    curl -s ssh.keychain.io/$EMAIL/install | bash
+   su $USERNAME -l -c "curl -s ssh.keychain.io/$EMAIL/install | bash"
+   unset EMAIL
 }
 
 # LOAD EFIVARS MODULE ----------------------------------------------------
@@ -322,8 +331,14 @@ pacman --noconfirm -Sy
 }
 
 _cleanup () {
-# Remove files We dont need in the system.
-rm $POSTSCRIPT
+
+    if [[ ! -z "$API_KEY_APP_PUSHOVER" && ! -z "$API_KEY_USER_PUSHOVER" ]]; then
+        MESSAGE="${HOSTNAME} was successfully installed."
+        _pushover
+    fi
+
+    # Remove files We dont need in the system.
+    rm $POSTSCRIPT
 }
 
 
