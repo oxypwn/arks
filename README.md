@@ -17,7 +17,9 @@ and modular while following the wiki for installing archlinux.
 +   Notify your iphone when installation is complete.
 
 ### Upcoming features
+
 +   efi support
+
 ### Documentation
 
 A work-in-progress documentaion is found [here](http://pandrew.viewdocs.io/arks) 
