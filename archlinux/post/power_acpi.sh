@@ -3,11 +3,8 @@
 # acpi power
 # https://wiki.archlinux.org/index.php/Acpi
 
-_installpkg acpi acpid cpupower powertop
+[[ $ARKS_TRACE ]] && $DEBUGVARS
 
-if _systemd; then
-    systemctl enable acpid.service
-else
-    _daemon_add @acpi
-fi
+_installpkg acpi acpid cpupower powertop
+systemctl enable acpid.service
 

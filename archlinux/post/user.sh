@@ -15,8 +15,8 @@ for ((i=0; i<${#array[@]}; ++i)); do
                 _addgroups
             fi
             useradd -m -g "$GROUP" -G "$ADDTOGROUPS" -s "$LOGIN_SHELL" "$USERNAME"
-            _mrbootstrap "$MR_BOOTSTRAP"
-            if [[ ! -z $API_KEY_EMAIL && ! -z $EMAIL ]]; then
+            _mrbootstrap
+            if [[ ! -z "$API_KEY_EMAIL" && ! -z "$EMAIL" ]]; then
                 _injectRandomPassword
 
                 SUBJECT="${HOSTNAME} sent you Your password."
@@ -24,7 +24,7 @@ for ((i=0; i<${#array[@]}; ++i)); do
                 
                 _mailgun
                 _keychainio
-            elif [[ ! -z $EMAIL ]]; then
+            elif [[ ! -z "$EMAIL" ]]; then
                 _keychainio
                 _injectBasicPassword
             else

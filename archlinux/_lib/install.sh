@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # ------------------------------------------------------------------------
 # archblocks - modular Arch Linux install script
 # ------------------------------------------------------------------------
-# blocks/lib/core.sh - main installer execution sequence
+# _lib/install.sh - main installer execution sequence
 
 # PREFLIGHT
 
