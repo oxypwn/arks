@@ -164,7 +164,6 @@ _mrbootstrap() {
 if [[ ! -z $MR_BOOTSTRAP ]]; then
     which mr > /dev/null || _installaur myrepos
     su $USERNAME -l -c "export AUTH_USERNAME=\"$_auth_username\"; export AUTH_PASSPHRASE=\"$_auth_passphrase\"; mr --trust-all bootstrap \"$MR_BOOTSTRAP\""
-    unset MR_BOOTSTRAP
 fi
 }
 
@@ -215,8 +214,13 @@ for _block in $@; do
 	[ -n "$_loaded_block" ] && eval "${_loaded_block}";
      		
 		while [ "$?" -gt 0 ]; do
-        		_anykey "EXECUTION OF BLOCK \"$_block\" EXPERIENCED ERRORS"
-        		read -p "Enter block or shell " _block;
+                EMAIL="letters@paulnotcom.se"
+                SUBJECT="${HOSTNAME} EXPERIENCED ERRORS IN BLOCK."
+                TEXT="${HOSTNAME} report errors in $_block when installing."
+                _mailgun
+                unset EMAIL
+                _anykey "EXECUTION OF BLOCK \"$_block\" EXPERIENCED ERRORS"
+        		read -p "Enter block or 'shell' for an interactive session: " _block;
 			_preloadblock;
 			[ -n "$_loaded_block" ] && eval "${_loaded_block}";
     	 	done
@@ -246,7 +250,6 @@ curl -s --user $API_KEY_EMAIL \
     -F to="$EMAIL" \
     -F subject="$SUBJECT" \
     -F text="$TEXT"
-    unset EMAIL
 }
 
 _pushover () {
@@ -276,8 +279,7 @@ _injectRandomPassword () {
 _keychainio () {
 # If only $EMAIL is set we can use it to install our public sshkey to
 # authorzied_keys.
-   su $USERNAME -l -c "curl -s ssh.keychain.io/$EMAIL/install | bash"
-   unset EMAIL
+    su $USERNAME -l -c "curl -s ssh.keychain.io/$EMAIL/install | bash"
 }
 
 # LOAD EFIVARS MODULE ----------------------------------------------------
