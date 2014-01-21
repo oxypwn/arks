@@ -34,13 +34,13 @@ DNS="'8.8.8.8' '8.8.4.4'"
 BRANCH=master
  
 # Set remote location to run from, source functions and run install
-REMOTE=https://raw.github.com/pandrew/arks/$BRANCH
+RE MOTE=https://raw.github.com/pandrew/arks/$BRANCH
 . <(curl -fsL "${REMOTE}/archlinux/_lib/functions.sh"); _loadblock "_lib/install"
 ```
 
 Config variables:
 ### HOSTNAME
-Example: 
+Exa mple: 
 
 ```
 HOSTNAME="archlinux"
@@ -172,6 +172,88 @@ NETWORK_PROFILE="post/net0-static"
 
 Using network profiles we can set any settings we need to get network up and running.
 
+ 
+### IPADDRESS
+Example:
+```
+IPADDRESS="192.168.1.2/24"
+```
+
+Set ip address for profile `net0-static` using ip address/cidr format.
+
+
+### GATEWAY
+Example: 
+```
+GATEWAY="192.168.2.1"
+```
+
+Set gateway for your system.
+
+### DNS
+Example: 
+```
+DNS="192.168.2.1"
+```
+
+Set dns for your system.
+
+
+### AUDIO
+Example:
+```
+AUDIO=”post/audio_alsa”
+```
+
+This variable points you to your settings for audio.
+
+
+
+### LANGUAGE	
+Example:
+
+```
+LANGUAGE=en_US.UTF-8
+```
+
+Set the language for your system.
+
+
+### FONT_MAP
+Example:
+```
+FONT_MAP=8859-1
+```
+
+Set the font map for your system.
+
+
+### FONT
+Example:
+```
+FONT=ter-116n
+```
+
+Set font for your system.
+
+
+### KEYMAP
+Example:
+```
+KEYMAP=svoraka5
+```
+
+Set keymap for your system.
+
+
+###TIMEZONE
+Example:
+```
+TIMEZONE="Europe/Stockholm"
+```
+
+Set the timezone for your system.
+
 #Not implemented
 ### ERROR_EMAIL
 Example:
@@ -182,16 +264,7 @@ If an error occur the system will jump out of the installation loop and give you
 email is sent to the address with hostname and what block it reported an error on.
 
 
-FONT		    Example: FONT=ter-116n
-FONT_MAP		Example: FONT_MAP=8859-1
-LANGUAGE		Example: LANGUAGE=en_US.UTF-8
-KEYMAP		    Example: KEYMAP=svoraka5
-TIMEZONE		Example: TIMEZONE="Europe/Stockholm"
 MODULES		    Example: MODULES="dm_mod dm_crypt aes_x86_64"
 HOOKS		    Example: HOOKS="base udev"
-AUDIO		    Example: AUDIO="post/audio_alsa"
-IPADRESS		Example: IPADRESS=192.168.1.18/24
 
-GATEWAY         Example: GATEWAY="192.168.2.1"
-DNS             Example: DNS="192.168.2.1"
 
