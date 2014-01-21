@@ -254,17 +254,26 @@ TIMEZONE="Europe/Stockholm"
 
 Set the timezone for your system.
 
-#Not implemented
 ### ERROR_EMAIL
 Example:
 ```
 ERROR_EMAIL=adm@paulnotcom.se
 ```
-If an error occur the system will jump out of the installation loop and give you the option to fix the block or enter a shell. If `ERROR_EMAIL` is set an
-email is sent to the address with hostname and what block it reported an error on.
+If an error occur the system will jump out of the installation loop and give you the option to fix the block or enter a shell. If `ERROR_EMAIL` is set an email is sent to the address with hostname and what block it reported an error on.
 
 
-MODULES		    Example: MODULES="dm_mod dm_crypt aes_x86_64"
-HOOKS		    Example: HOOKS="base udev"
+### MODULES
+Example:
+```
+MODULES="dm_mod dm_crypt aes_x86_64"
+```
 
+Set modules for mkinitcpio.
 
+### HOOKS
+Example:
+```
+HOOKS="base udev"
+```
+
+Set hooks for mkinitcpio.
