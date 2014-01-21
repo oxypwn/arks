@@ -214,13 +214,18 @@ for _block in $@; do
 	[ -n "$_loaded_block" ] && eval "${_loaded_block}";
      		
 		while [ "$?" -gt 0 ]; do
-                EMAIL="letters@paulnotcom.se"
-                SUBJECT="${HOSTNAME} EXPERIENCED ERRORS IN BLOCK."
-                TEXT="${HOSTNAME} report errors in $_block when installing."
-                _mailgun
-                unset EMAIL
-                _anykey "EXECUTION OF BLOCK \"$_block\" EXPERIENCED ERRORS"
-        		read -p "Enter block or 'shell' for an interactive session: " _block;
+            if [[ ! -z "$ERROR_EMAIL" ]]; then
+                    EMAIL=${ERROR_EMAIL}
+                    SUBJECT="${HOSTNAME} EXPERIENCED ERRORS IN BLOCK."
+                    TEXT="${HOSTNAME} report errors in $_block when installing."
+                    _mailgun
+                    unset EMAIL
+                    _anykey "EXECUTION OF BLOCK \"$_block\" EXPERIENCED ERRORS"
+                    read -p "Enter block or 'shell' for an interactive session: " _block;
+                else
+                    _anykey "EXECUTION OF BLOCK \"$_block\" EXPERIENCED ERRORS" 
+                    read -p "Enter block or 'shell' for an interactive session: " _block;
+                fi
 			_preloadblock;
 			[ -n "$_loaded_block" ] && eval "${_loaded_block}";
     	 	done
