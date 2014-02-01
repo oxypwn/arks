@@ -10,7 +10,7 @@ TIMEZONE=Europe/Stockholm
 MODULES="dm_mod dm_crypt aes_x86_64 ext2 ext4 vfat intel_agp drm i915"
 HOOKS="base udev autodetect block keyboard consolefont encrypt filesystems fsck shutdown"
 AUDIO=post/audio_alsa
-APPSETS=""
+APPSETS="appsets/virtualbox_guest"
 PACKAGES="git"
 AURPACKAGES=""
 
