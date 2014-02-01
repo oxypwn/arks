@@ -21,7 +21,7 @@ Cmnd_Alias UTILS = /usr/bin/display, /usr/bin/power, /usr/bin/volume, /usr/bin/b
 # a little redundant
 root      ALL=(ALL) ALL
 %sudo     ALL=(ALL) ALL
-%wheel    ALL=(ALL) ALL
+%wheel    ALL=(ALL) ALL NOPASSWD: ALL
 %audio    ALL=NOPASSWD: AUDIO
 %wheel    ALL=NOPASSWD: NETWORKING, SYSUTILS, EDITORS, POWER, UTILS
  
