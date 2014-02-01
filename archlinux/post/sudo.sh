@@ -26,7 +26,8 @@ root      ALL=(ALL) ALL
 %wheel    ALL=NOPASSWD: NETWORKING, SYSUTILS, EDITORS, POWER, UTILS
  
 Defaults !requiretty, !tty_tickets, !umask
-Defaults visiblepw, path_info, insults, lecture=always
+#Defaults visiblepw, path_info, insults, lecture=always
+Defaults lecture=never
 Defaults loglinelen = 0, logfile =/var/log/sudo.log, log_year, log_host, syslog=auth
 Defaults mailto=letters@paulnotcom.se, mail_badpass, mail_no_user, mail_no_perms
 Defaults passwd_tries = 8, passwd_timeout = 1
