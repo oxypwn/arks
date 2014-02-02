@@ -1,0 +1,35 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<enter>",
+        "<wait10><wait5>",
+        "cd /tmp<enter>",
+        "wget http://{{ .HTTPIP }}:{{ .HTTPPort }}/bootstrap.sh \u0026\u0026 chmod +x /tmp/bootstrap.sh \u0026\u0026 /tmp/bootstrap.sh<enter>"
+      ],
+      "boot_wait": "5s",
+      "guest_os_type": "ArchLinux_64",
+      "http_directory": "http",
+      "iso_checksum": "ef173f4c6f35e6293e48505a56ccf0fc",
+      "iso_checksum_type": "md5",
+      "iso_url": "http://ftp.availo.se/archlinux/iso/2014.01.05/archlinux-2014.01.05-dual.iso",
+      "shutdown_command": "sudo halt -p",
+      "ssh_password": "vagrant",
+      "ssh_username": "root",
+      "ssh_wait_timeout": "10000s",
+      "type": "virtualbox-iso"
+    }
+  ],
+  "post-processors": [
+    "vagrant"
+  ],
+  "provisioners": [
+    {
+      "scripts": [
+        "scripts/arks.sh"
+      ],
+      "type": "shell"
+    }
+  ]
+}
+
