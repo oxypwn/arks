@@ -1,9 +1,14 @@
 # Using packer with Jenkins
 
 
+
 Added plugins:
 +   AnsiColor
 +   GitHub plugin
+
+### Dependencies
++   jenkins
++   virtualbox
 
 
 ```
