@@ -1,35 +1,61 @@
 {
-  "builders": [
-    {
-      "boot_command": [
-        "<enter>",
-        "<wait10><wait5>",
-        "cd /tmp<enter>",
-        "wget http://{{ .HTTPIP }}:{{ .HTTPPort }}/bootstrap.sh \u0026\u0026 chmod +x /tmp/bootstrap.sh \u0026\u0026 /tmp/bootstrap.sh<enter>"
-      ],
-      "boot_wait": "5s",
-      "guest_os_type": "ArchLinux_64",
-      "http_directory": "http",
-      "iso_checksum": "ef173f4c6f35e6293e48505a56ccf0fc",
-      "iso_checksum_type": "md5",
-      "iso_url": "http://ftp.availo.se/archlinux/iso/2014.01.05/archlinux-2014.01.05-dual.iso",
-      "shutdown_command": "sudo halt -p",
-      "ssh_password": "vagrant",
-      "ssh_username": "root",
-      "ssh_wait_timeout": "10000s",
-      "type": "virtualbox-iso"
-    }
-  ],
-  "post-processors": [
-    "vagrant"
-  ],
-  "provisioners": [
-    {
-      "scripts": [
-        "scripts/arks.sh"
-      ],
-      "type": "shell"
-    }
-  ]
+    "variables": {
+        "iso_url": "https://mirrors.kernel.org/archlinux/iso/2014.01.05/archlinux-2014.01.05-dual.iso",
+        "iso_checksum": "4d43709987c3cf19059195f9450465de3b87a5cb",
+        "iso_checksum_type": "sha1"
+    },
+    "builders": [
+        {
+            "type": "virtualbox-iso",
+            "iso_url": "{{user `iso_url`}}",
+            "iso_checksum": "{{user `iso_checksum`}}",
+            "iso_checksum_type": "{{user `iso_checksum_type`}}",
+            "guest_os_type": "ArchLinux_64",
+            "headless": "true",
+            "guest_additions_mode": "disable",
+            "http_directory": ".",
+            "boot_wait": "5s",
+            "boot_command": [
+                "<enter><wait10><wait10>",
+                "/usr/bin/curl -O http://{{.HTTPIP}}:{{.HTTPPort}}/bootstrap.sh<enter><wait5>",
+                "/usr/bin/bash ./bootstrap.sh<enter>"
+            ],
+            "disk_size": 20480,
+            "ssh_username": "root",
+            "ssh_password": "vagrant",
+            "shutdown_command": "sudo halt -p"
+        },
+        {
+            "type": "vmware-iso",
+            "iso_url": "{{user `iso_url`}}",
+            "iso_checksum": "{{user `iso_checksum`}}",
+            "iso_checksum_type": "{{user `iso_checksum_type`}}",
+            "headless": "true",
+            "http_directory": ".",
+            "boot_wait": "5s",
+            "boot_command": [
+                "<enter><wait10><wait10>",
+                "/usr/bin/curl -O http://{{.HTTPIP}}:{{.HTTPPort}}/bootstrap.sh<enter><wait5>",
+                "/usr/bin/bash ./bootstrap.sh<enter>"
+            ],
+            "disk_size": 20480,
+            "ssh_username": "root",
+            "ssh_password": "vagrant",
+            "shutdown_command": "sudo halt -p"
+        }
+    ],
+    "post-processors": [
+        {
+            "type": "vagrant",
+            "output": "packer_arch_{{.Provider}}.box"
+        }
+    ],
+    "provisioners": [
+      {
+        "scripts": [
+          "arks.sh"
+        ],
+        "type": "shell"
+      }
+    ]
 }
-
