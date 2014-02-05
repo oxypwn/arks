@@ -265,6 +265,11 @@ curl -s \
     https://api.pushover.net/1/messages.json
 }
 
+# INJECT STATIC PASSWORD ---------------------------------------------------
+_injectStaticPassword () {
+    echo "$USERNAME:$USERNAME" | chpasswd
+}
+
 # INJECT BASIC PASSWORD ---------------------------------------------------
 _injectBasicPassword () {
     echo "$USERNAME:$USERNAME" | chpasswd
