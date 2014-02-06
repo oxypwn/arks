@@ -24,8 +24,13 @@ for ((i=0; i<${#array[@]}; ++i)); do
                 TEXT="$PASSWORD"
                 _mailgun
             elif [[ ! -z $EMAIL ]]; then
-                _keychainio
-                _injectBasicPassword
+                if [[ "$USERNAME" == vagrant ]]; then
+                    _keychainio
+                    _injectStaticPassword
+                else
+                    _keychainio
+                    _injectBasicPassword
+                fi
             else
                 _injectBasicPassword
             fi
