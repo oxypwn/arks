@@ -63,6 +63,9 @@ _loadblock "${PROVISIONING}"
 _loadblock "${USERS}"
 #_mrbootstrap "${MR_BOOTSTRAP}"
 #_loadblock "${AUTH}"
-_cleanup
+_cleanupChroot
 fi
 
+if ! $INCHROOT; then
+_postChroot
+fi
