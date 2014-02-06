@@ -66,4 +66,3 @@ _loadblock "${USERS}"
 _cleanup
 fi
 
-eject && reboot || reboot
