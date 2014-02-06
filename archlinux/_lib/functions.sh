@@ -342,7 +342,7 @@ pacman --noconfirm -Sy
 
 }
 
-_cleanup () {
+_cleanupChroot () {
 
     if [[ ! -z "$API_KEY_APP_PUSHOVER" && ! -z "$API_KEY_USER_PUSHOVER" ]]; then
         MESSAGE="${HOSTNAME} was successfully installed."
