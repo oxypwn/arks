@@ -13,7 +13,7 @@ AUDIO=post/audio_alsa
 APPSETS="appsets/virtualbox_guest"
 PACKAGES="git"
 AURPACKAGES=""
-
+CLEANUP="post/packer"
 NETWORK_PROFILE="post/net0-dhcp"
 
 BRANCH=master
