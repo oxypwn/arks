@@ -359,7 +359,13 @@ _cleanupChroot () {
     fi
 }
 
-
+_postChroot () {
+    if [[ ! -z "$POST_CHROOT" ]]; then
+        _loadblock "$POST_CHROOT"
+    else
+        eject && reboot || reboot
+    fi
+}
 # INIT/SYSTEMD FUNCTIONS -------------------------------------------------
 
 # return true if INIT_MODE is systemd (this is the INIT_MODE default)
