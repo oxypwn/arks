@@ -16,7 +16,7 @@ AURPACKAGES=""
 POST_CHROOT="post/packer"
 NETWORK_PROFILE="post/net0-dhcp"
 
-BRANCH=vagrant
+BRANCH=master
 
 # Set remote location to run from, source functions and run install
 REMOTE=https://raw.github.com/pandrew/arks/"$BRANCH"
