@@ -359,6 +359,7 @@ _cleanupChroot () {
         _loadblock "$CLEANUP"
     else
         eject && reboot || reboot
+        echo "clenaupChroot"
     fi
 }
 
@@ -367,6 +368,7 @@ _postChroot () {
         _loadblock "$POST_CHROOT"
     else
         eject && reboot || reboot
+        echo "postChroot"
     fi
 }
 # INIT/SYSTEMD FUNCTIONS -------------------------------------------------
