@@ -63,7 +63,7 @@ _loadblock "${PROVISIONING}"
 _loadblock "${USERS}"
 #_mrbootstrap "${MR_BOOTSTRAP}"
 #_loadblock "${AUTH}"
-#_cleanupChroot
+_cleanupChroot
 fi
 
 if ! $INCHROOT; then
