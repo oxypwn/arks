@@ -66,6 +66,6 @@ _loadblock "${USERS}"
 _cleanupChroot
 fi
 
-if ! $INCHROOT; then
-_postChroot
-fi
+#if ! $INCHROOT; then
+#_postChroot
+#fi
