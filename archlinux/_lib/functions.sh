@@ -355,12 +355,6 @@ _cleanupChroot () {
     # Remove files We dont need in the system.
     rm $POSTSCRIPT
 
-    if [[ ! -z "$CLEANUP" ]]; then
-        _loadblock "$CLEANUP"
-    else
-        eject && reboot || reboot
-        echo "clenaupChroot"
-    fi
 }
 
 _postChroot () {
