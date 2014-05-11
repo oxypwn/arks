@@ -4,6 +4,9 @@
 # ------------------------------------------------------------------------
 # blocks/lib/helpers.sh - common helper functions
 
+# Debugvars for functions
+[[ $ARKS_TRACE ]] && $DEBUGVARS
+
 # DEFAULTVALUE -----------------------------------------------------------
 _defaultvalue () {
 # Assign value to a variable in the install script only if unset.
