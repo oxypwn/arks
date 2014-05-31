@@ -1,5 +1,5 @@
 #!/bin/sh
 
-curl -O https://raw.github.com/pandrew/arks/vagrant/profile/mercury
+curl -O https://raw.githubusercontent.com/pandrew/arks/master/profile/mercury
 
 bash ./mercury
